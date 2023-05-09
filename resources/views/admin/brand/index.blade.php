@@ -85,8 +85,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAB5CAMAAADCiAkVAAAAY1BMVEX///9APz9EQ0MxMDA3NjY7Ojo0MzP6+vq6urosKyskIyOdnZ0oJychICDv7+9oaGjLy8vi4uLV1dWUlJRhYWGJiYlTUlJbWlqurq5OTU1vbm7AwMB4d3cdGxukpKSCgoIXFRW8QGGdAAADl0lEQVRoge2ai5aiMAyGKW2hRahcBeTivP9TLujsDjpIG23onD3zv4CfaRKSv/W8X72s0FNZKpouzTMVugBQh+7SxlHs91UxitwBhKCBZGQW5yyQ0RCURZPtSTB+kEdxRiNZpXsR5Mk3gpsCehK7EIQX9gRhCoasc/Tfb/r6KcAVIm5wCRopOd9EICS6IAKoY6z5+atoj4eQt7oI3CQLNITj8zy8V4JVnWlkSECIj9Que7NjmEUrFILQKBc/xVDadXg0jwIJcMJQAhAIUQgE4QAhoBhN8unXaVXcR0AQEoJAEoSEHCkIAeMkigCEwBBqooIh8NI+AjAKhNlv0gcgwmAfoYGlI/mwj9DBihIDAdaaUBBgDZqQGGFm8GEILQICYGSZxI/2CbwRVJUY3dHLIWMTztfaA1VlhDK6bSyTK0IwHdJTCyHw/bNthrAGxWDSYHuhUcC2gLBTKVBXmMRb20O0AmXCJGZ9uQVtMrMS+37LATgvRPaLUpkv1rMwZkevAlUlw/B7UlCDDg4ICLCZRaI4LSdITSQYBF4DOAmGY7tlgChQJMfrYtwaeI1DMDVpaRYIHycZZ2XCpE3zMsM0w01mWJSW8KXUIB1oh4oQmiAgX1XpkwFliVlKv2BL9NshbZv2MVzPOwnNUkXxbiP+KtSEge9wYbnt+KCMKo9KN08CPxm1CNEeV7bbCBje809E2LbkdzmIbUuejjsgaJwOecbujtlZ16CZj5sODdPvVBznivBThZELbN9aWBAYrrasxppaKuNdhvkYtRmmJ4D9yoNSWM4I1dQxzGbhkvSdvfPIKma4xNxTRH5hJRShKAeo5/hPwVCLd0ORV5S+EIBFKCit3liusqZmwIu51VCwWrzUKVTX81cyYE08bitwVnQXDiwBjYLkCFj0lOgHW/9/IR5TswIJ0/ObCbihgJbaXqGak3y5Ak3E5emwGQph6qO8A0Fp/xQiOyboAFexZ9uGsFsCm4pWL/BG4L34e1ozxDqY0/6uVp78ZBYaMUjy27Tfo5bimvjDZyPfNRGuegwD8L2ODfGHGdfwTalVybsxIndA8OBKAR+w2RFvHafCrOWnonZxEEQuZxgX5zAlw8KyV6A3Ita0NAgzN1FY3qE56I2z+PkLweSiAwNhcW3QuUcQ7hGgbxkxENw0xyUC7PmaPYTzL8J9a4K+7v2PEC7uESrnCEHxi/AjEJZTkyuE8WchcN+FgpvP8QdK9z1yRhl2GgAAAABJRU5ErkJggg==">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAB5CAMAAADCiAkVAAAAY1BMVEX///9APz9EQ0MxMDA3NjY7Ojo0MzP6+vq6urosKyskIyOdnZ0oJychICDv7+9oaGjLy8vi4uLV1dWUlJRhYWGJiYlTUlJbWlqurq5OTU1vbm7AwMB4d3cdGxukpKSCgoIXFRW8QGGdAAADl0lEQVRoge2ai5aiMAyGKW2hRahcBeTivP9TLujsDjpIG23onD3zv4CfaRKSv/W8X72s0FNZKpouzTMVugBQh+7SxlHs91UxitwBhKCBZGQW5yyQ0RCURZPtSTB+kEdxRiNZpXsR5Mk3gpsCehK7EIQX9gRhCoasc/Tfb/r6KcAVIm5wCRopOd9EICS6IAKoY6z5+atoj4eQt7oI3CQLNITj8zy8V4JVnWlkSECIj9Que7NjmEUrFILQKBc/xVDadXg0jwIJcMJQAhAIUQgE4QAhoBhN8unXaVXcR0AQEoJAEoSEHCkIAeMkigCEwBBqooIh8NI+AjAKhNlv0gcgwmAfoYGlI/mwj9DBihIDAdaaUBBgDZqQGGFm8GEILQICYGSZxI/2CbwRVJUY3dHLIWMTztfaA1VlhDK6bSyTK0IwHdJTCyHw/bNthrAGxWDSYHuhUcC2gLBTKVBXmMRb20O0AmXCJGZ9uQVtMrMS+37LATgvRPaLUpkv1rMwZkevAlUlw/B7UlCDDg4ICLCZRaI4LSdITSQYBF4DOAmGY7tlgChQJMfrYtwaeI1DMDVpaRYIHycZZ2XCpE3zMsM0w01mWJSW8KXUIB1oh4oQmiAgX1XpkwFliVlKv2BL9NshbZv2MVzPOwnNUkXxbiP+KtSEge9wYbnt+KCMKo9KN08CPxm1CNEeV7bbCBje809E2LbkdzmIbUuejjsgaJwOecbujtlZ16CZj5sODdPvVBznivBThZELbN9aWBAYrrasxppaKuNdhvkYtRmmJ4D9yoNSWM4I1dQxzGbhkvSdvfPIKma4xNxTRH5hJRShKAeo5/hPwVCLd0ORV5S+EIBFKCit3liusqZmwIu51VCwWrzUKVTX81cyYE08bitwVnQXDiwBjYLkCFj0lOgHW/9/IR5TswIJ0/ObCbihgJbaXqGak3y5Ak3E5emwGQph6qO8A0Fp/xQiOyboAFexZ9uGsFsCm4pWL/BG4L34e1ozxDqY0/6uVp78ZBYaMUjy27Tfo5bimvjDZyPfNRGuegwD8L2ODfGHGdfwTalVybsxIndA8OBKAR+w2RFvHafCrOWnonZxEEQuZxgX5zAlw8KyV6A3Ita0NAgzN1FY3qE56I2z+PkLweSiAwNhcW3QuUcQ7hGgbxkxENw0xyUC7PmaPYTzL8J9a4K+7v2PEC7uESrnCEHxi/AjEJZTkyuE8WchcN+FgpvP8QdK9z1yRhl2GgAAAABJRU5ErkJggg==">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -106,12 +108,13 @@
                                 <div class="dropdown-divider"></div>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="route('logout')"
+                                        onclick="event.preventDefault();
                                 this.closest('form').submit();">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Log Out') }}
-                                </a>
-                            </form>
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
                             </div>
                         </li>
 
@@ -124,36 +127,74 @@
                 <div>
                     <div>
                         <div class="container-fluid">
-                            <a href="{{ url('admin/brands/create') }}">
-                                <button type="button" class="btn btn-primary ml-5 float-end">
-                                    📂 Add Brand
-                                </button>
-                            </a>
-                    
+                           
+
                             <div class="con ml-5">
-                                {{-- @foreach ($categories as $category)
-                                    <a href="{{ url('admin/brand/' . $category->id . '/edit') }}">
-                                        <div class="card m-3 float-left" style="width: 17rem;">
-                                            <img src="{{ asset('Uploads/Category/' . $category->image) }}" class="card-img-top"
-                                                width="55px" height="230px" alt="{{ $category->name }}">
-                                            <div class="card-body">
-                                                <h3 class="text-center">{{ $category->name }}</h3>
+
+                                {{-- <div class="card m-3 float-right" style="width: 100%;">
+                                            <div class="card-body"> 
+                                                <h3 class="float-left text-dark">{{$dat->id}} | </h3>
+                                                <h3 class="float-left text-dark w-25 ml-2"> {{ $dat->name }}</h3>
+                                                <h2 class="float-left text-dark w-25">{{$dat->slug}}</h2>
                                                 <div class="float-end">
-                                                    <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
+                                                    <a href="{{ url('admin/category/' . $dat->id . '/edit') }}"
                                                         class="btn btn-warning">Edit</a>
-                                                    <a href="{{ url('admin/category/' . $category->id . '/delete') }}"
+                                                    <a href="{{ url('admin/category/' . $dat->id . '/delete') }}"
                                                         onclick="return confirm('Are you sure you want to delete this Category?')"
                                                         class="btn btn-danger ">Delete</a>
                                                 </div>
                                             </div>
+                                        </div> --}}
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">Brendlar</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Id</th>
+                                                                <th>Nomi</th>
+                                                                <th>Slag</th>
+                                                                <th>Status</th>
+                                                                <th>Holat</th>
+                                                            </tr>
+                                                        </thead>
+                    
+                                                        @foreach ($data as $dat)
+                                                        <a href="{{ url('admin/brand/' . $dat->id . '/edit') }}">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">{{ $dat->id }}</th>
+                                                                    <td> {{ $dat->name }}</td>
+                                                                    <td>{{ $dat->slug }}</td>
+                                                                    <td>{{ $dat->status }}</td>
+                                                                    <td>
+                                                                        <a href="{{ url('admin/category/' . $dat->id . '/edit') }}"
+                                                                            class="btn btn-warning">Edit</a>
+                                                                        <a href="{{ url('admin/category/' . $dat->id . '/delete') }}"
+                                                                            onclick="return confirm('Are you sure you want to delete this Category?')"
+                                                                            class="btn btn-danger ">Delete</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </a>
+                                                    @endforeach
+                                                            {{-- <button class=" btn-primary w-25 m-2 btn ">👨‍💻 Add Admin</button> --}}
+                                                            <a href="{{ url('admin/brands/create') }}">
+                                                                <button type="button" class="btn-primary w-25 mb-2 btn">
+                                                                    📂 Add Brand
+                                                                </button>
+                                                            </a>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                @endforeach --}}
-                    
                             </div>
-                    
+
                         </div>
-                    
+
                     </div>
                 </div>
             </div>

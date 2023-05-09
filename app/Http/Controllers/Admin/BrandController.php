@@ -12,7 +12,8 @@ class BrandController extends Controller
 {
     public function index()
     {
-        return view('admin.brand.index');
+        $data = Brand::get();
+        return view('admin.brand.index',compact('data'));
     }
 
     public function create()
@@ -28,13 +29,14 @@ class BrandController extends Controller
         ]);
         $name = $request->name;
         $slug= $request->slug;
+        $status = $request->status==true ? '1':'0';
 
         $brand = new Brand ;
         $brand->name = $name;
+        $brand->status = $status;
         $brand->slug = $slug;
 
         $brand->save();
-
         return redirect('admin/brands')->with('success', 'Brand added successfully');
     }
 }
