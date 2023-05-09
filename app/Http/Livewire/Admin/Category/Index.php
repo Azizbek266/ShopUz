@@ -30,6 +30,7 @@ class Index extends Component
         }
         $category->delete();
         session()->flash('message', 'Category Deleted');
+        $this->dispatchBrowserEvent('close-modal');
     }
 
     public function render()

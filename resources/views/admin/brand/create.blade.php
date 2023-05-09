@@ -124,13 +124,13 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Add Brands
-                                <a href="{{ url('admin/brands') }}"
+                            <h3>Add Brand
+                                <a href="{{ url('admin/brands/') }}"
                                     class="btn btn-primary btn-md text-white float-end">BACK</a>
                             </h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('admin/brand/store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('admin/brands') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <div class="row">
@@ -145,7 +145,7 @@
                                         @error('slug') <small class="text-danger">{{ $message }}</small> @enderror
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Status</label>
+                                        <label for="">Status</label></br>
                                         <input type="checkbox" name="status">
                                     </div>
                                     <div class="col-md-12 mb-3">
