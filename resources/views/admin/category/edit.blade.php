@@ -129,26 +129,6 @@
                                     class="btn btn-primary btn-md text-white float-end">BACK</a>
                             </h3>
 
-                            {{-- <div class="con ml-5">
-                        <a href="./product.html">
-                            <div class="card m-3 float-left" style="width: 18rem;">
-                                <img src="https://avatars.mds.yandex.net/i?id=9f0e7867b63bc0dfa207178d50607e040a7e2439-9067770-images-thumbs&n=13"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h3 class="text-center">Category</h3>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="./product.html">
-                            <div class="card m-3 float-left" style="width: 18rem;">
-                                <img src="https://avatars.mds.yandex.net/i?id=9f0e7867b63bc0dfa207178d50607e040a7e2439-9067770-images-thumbs&n=13"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h3 class="text-center">Category</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div> --}}
 
                         </div>
                         <div class="card-body">
@@ -264,7 +244,7 @@
                                 <input type="file" class="form-control-file" id="product-image"
                                     name="product-image" accept="image/*" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Add Product</button>
+                            <button type="submit" class="btn btn-primary">Update Product</button>
                         </form>
                     </div>
                 </div>

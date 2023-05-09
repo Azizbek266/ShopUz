@@ -85,10 +85,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span
-                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAB5CAMAAADCiAkVAAAAY1BMVEX///9APz9EQ0MxMDA3NjY7Ojo0MzP6+vq6urosKyskIyOdnZ0oJychICDv7+9oaGjLy8vi4uLV1dWUlJRhYWGJiYlTUlJbWlqurq5OTU1vbm7AwMB4d3cdGxukpKSCgoIXFRW8QGGdAAADl0lEQVRoge2ai5aiMAyGKW2hRahcBeTivP9TLujsDjpIG23onD3zv4CfaRKSv/W8X72s0FNZKpouzTMVugBQh+7SxlHs91UxitwBhKCBZGQW5yyQ0RCURZPtSTB+kEdxRiNZpXsR5Mk3gpsCehK7EIQX9gRhCoasc/Tfb/r6KcAVIm5wCRopOd9EICS6IAKoY6z5+atoj4eQt7oI3CQLNITj8zy8V4JVnWlkSECIj9Que7NjmEUrFILQKBc/xVDadXg0jwIJcMJQAhAIUQgE4QAhoBhN8unXaVXcR0AQEoJAEoSEHCkIAeMkigCEwBBqooIh8NI+AjAKhNlv0gcgwmAfoYGlI/mwj9DBihIDAdaaUBBgDZqQGGFm8GEILQICYGSZxI/2CbwRVJUY3dHLIWMTztfaA1VlhDK6bSyTK0IwHdJTCyHw/bNthrAGxWDSYHuhUcC2gLBTKVBXmMRb20O0AmXCJGZ9uQVtMrMS+37LATgvRPaLUpkv1rMwZkevAlUlw/B7UlCDDg4ICLCZRaI4LSdITSQYBF4DOAmGY7tlgChQJMfrYtwaeI1DMDVpaRYIHycZZ2XCpE3zMsM0w01mWJSW8KXUIB1oh4oQmiAgX1XpkwFliVlKv2BL9NshbZv2MVzPOwnNUkXxbiP+KtSEge9wYbnt+KCMKo9KN08CPxm1CNEeV7bbCBje809E2LbkdzmIbUuejjsgaJwOecbujtlZ16CZj5sODdPvVBznivBThZELbN9aWBAYrrasxppaKuNdhvkYtRmmJ4D9yoNSWM4I1dQxzGbhkvSdvfPIKma4xNxTRH5hJRShKAeo5/hPwVCLd0ORV5S+EIBFKCit3liusqZmwIu51VCwWrzUKVTX81cyYE08bitwVnQXDiwBjYLkCFj0lOgHW/9/IR5TswIJ0/ObCbihgJbaXqGak3y5Ak3E5emwGQph6qO8A0Fp/xQiOyboAFexZ9uGsFsCm4pWL/BG4L34e1ozxDqY0/6uVp78ZBYaMUjy27Tfo5bimvjDZyPfNRGuegwD8L2ODfGHGdfwTalVybsxIndA8OBKAR+w2RFvHafCrOWnonZxEEQuZxgX5zAlw8KyV6A3Ita0NAgzN1FY3qE56I2z+PkLweSiAwNhcW3QuUcQ7hGgbxkxENw0xyUC7PmaPYTzL8J9a4K+7v2PEC7uESrnCEHxi/AjEJZTkyuE8WchcN+FgpvP8QdK9z1yRhl2GgAAAABJRU5ErkJggg==">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <img class="img-profile rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAB5CAMAAADCiAkVAAAAY1BMVEX///9APz9EQ0MxMDA3NjY7Ojo0MzP6+vq6urosKyskIyOdnZ0oJychICDv7+9oaGjLy8vi4uLV1dWUlJRhYWGJiYlTUlJbWlqurq5OTU1vbm7AwMB4d3cdGxukpKSCgoIXFRW8QGGdAAADl0lEQVRoge2ai5aiMAyGKW2hRahcBeTivP9TLujsDjpIG23onD3zv4CfaRKSv/W8X72s0FNZKpouzTMVugBQh+7SxlHs91UxitwBhKCBZGQW5yyQ0RCURZPtSTB+kEdxRiNZpXsR5Mk3gpsCehK7EIQX9gRhCoasc/Tfb/r6KcAVIm5wCRopOd9EICS6IAKoY6z5+atoj4eQt7oI3CQLNITj8zy8V4JVnWlkSECIj9Que7NjmEUrFILQKBc/xVDadXg0jwIJcMJQAhAIUQgE4QAhoBhN8unXaVXcR0AQEoJAEoSEHCkIAeMkigCEwBBqooIh8NI+AjAKhNlv0gcgwmAfoYGlI/mwj9DBihIDAdaaUBBgDZqQGGFm8GEILQICYGSZxI/2CbwRVJUY3dHLIWMTztfaA1VlhDK6bSyTK0IwHdJTCyHw/bNthrAGxWDSYHuhUcC2gLBTKVBXmMRb20O0AmXCJGZ9uQVtMrMS+37LATgvRPaLUpkv1rMwZkevAlUlw/B7UlCDDg4ICLCZRaI4LSdITSQYBF4DOAmGY7tlgChQJMfrYtwaeI1DMDVpaRYIHycZZ2XCpE3zMsM0w01mWJSW8KXUIB1oh4oQmiAgX1XpkwFliVlKv2BL9NshbZv2MVzPOwnNUkXxbiP+KtSEge9wYbnt+KCMKo9KN08CPxm1CNEeV7bbCBje809E2LbkdzmIbUuejjsgaJwOecbujtlZ16CZj5sODdPvVBznivBThZELbN9aWBAYrrasxppaKuNdhvkYtRmmJ4D9yoNSWM4I1dQxzGbhkvSdvfPIKma4xNxTRH5hJRShKAeo5/hPwVCLd0ORV5S+EIBFKCit3liusqZmwIu51VCwWrzUKVTX81cyYE08bitwVnQXDiwBjYLkCFj0lOgHW/9/IR5TswIJ0/ObCbihgJbaXqGak3y5Ak3E5emwGQph6qO8A0Fp/xQiOyboAFexZ9uGsFsCm4pWL/BG4L34e1ozxDqY0/6uVp78ZBYaMUjy27Tfo5bimvjDZyPfNRGuegwD8L2ODfGHGdfwTalVybsxIndA8OBKAR+w2RFvHafCrOWnonZxEEQuZxgX5zAlw8KyV6A3Ita0NAgzN1FY3qE56I2z+PkLweSiAwNhcW3QuUcQ7hGgbxkxENw0xyUC7PmaPYTzL8J9a4K+7v2PEC7uESrnCEHxi/AjEJZTkyuE8WchcN+FgpvP8QdK9z1yRhl2GgAAAABJRU5ErkJggg==">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -108,13 +106,12 @@
                                 <div class="dropdown-divider"></div>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a class="dropdown-item" href="route('logout')"
-                                        onclick="event.preventDefault();
+                                <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
                                 this.closest('form').submit();">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        {{ __('Log Out') }}
-                                    </a>
-                                </form>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
                             </div>
                         </li>
 
@@ -124,75 +121,42 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div>
-                    <div>
-                        <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Edit Brands
+                                <a href="{{ url('admin/brands') }}"
+                                    class="btn btn-primary btn-md text-white float-end">BACK</a>
+                            </h3>
 
-
-                            <div class="con ml-5">
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Brendlar</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <a href="{{ url('admin/brands/create') }}">
-                                                <button type="button" class="btn-primary w-25 mb-2 btn">
-                                                    📂 Add Brand
-                                                </button>
-                                            </a>
-                                            @if ($data->isEmpty())
-                                                <p class="text-center h3">No brand</p>
-                                            @else
-                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Id</th>
-                                                            <th>Nomi</th>
-                                                            <th>Slag</th>
-                                                            <th>Status</th>
-                                                            <th>Holat</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @php
-                                                        $counter = 1; // Initialize the counter
-                                                        @endphp
-                                        
-                                                        @foreach ($data as $dat)
-                                                            <tr>
-                                                                <th scope="row">{{ $counter }}</th>
-                                                                <td>{{ $dat->name }}</td>
-                                                                <td>{{ $dat->slug }}</td>
-                                                                <td>{{ $dat->status }}</td>
-                                                                <td>
-                                                                    <a href="{{ url('admin/brands/' . $dat->id . '/edit') }}"
-                                                                        class="btn btn-warning">Edit</a>
-                                                                    <a href="{{ url('admin/brands/' . $dat->id . '/delete') }}"
-                                                                        onclick="return confirm('Are you sure you want to delete this Category?')"
-                                                                        class="btn btn-danger">Delete</a>
-                                                                </td>
-                                                            </tr>
-                                                            @php
-                                                            $counter++; // Increment the counter
-                                                            @endphp
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            @endif
-
-                                        </div>
-                                        
-                                    
-                                        
-                                        
-
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
-
+                        <div class="card-body">
+                            <form action="{{ url('admin/brands/'.$brand->id.'/update') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class=" col-md-6 mb-3">
+                                        <label for="Name">Name</label>
+                                        <input type="text" name="name" value="{{ $brand->name }}" id="name" class="form-control">
+                                        @error('name') <small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    <div class=" col-md-6 mb-3">
+                                        <label for="slug">Slug</label>
+                                        <input type="text" name="slug" value="{{ $brand->slug }}" id="slug" class="form-control">
+                                         @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    <div class=" col-md-6 mb-3">
+                                        <label for="status">Status</label><br />
+                                        <input type="checkbox" name="status" id="status">
+                                        @error('status') <small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <button type="submit" class="btn btn-primary text-white float-end">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+               
                     </div>
                 </div>
             </div>
@@ -207,6 +171,29 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
