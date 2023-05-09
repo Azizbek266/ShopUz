@@ -24,7 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('/admin')->middleware('auth','isAdmin')->group(function(){
+Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
@@ -33,16 +33,18 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
 
     // CATEGORY Routes
-    Route::get('/category',[CategoryController::class,'index']);
-    Route::get('/category/create',[CategoryController::class,'create']);
-    Route::post('category', [CategoryController::class,'store']);
+    Route::get('/category', [CategoryController::class, 'index']);
+    Route::get('/category/create', [CategoryController::class, 'create']);
+    Route::post('category', [CategoryController::class, 'store']);
     Route::get('/category/{category}/edit', [CategoryController::class, 'edit']);
     Route::post('/category/{category}/update', [CategoryController::class, 'update']);
     Route::any('category/{category}/delete', [CategoryController::class, 'delete']);
 
-    Route::get('/products',[ProductController::class,'index']);
-    Route::get('/products/create',[ProductController::class,'create']);
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/products/create', [ProductController::class, 'create']);
 
-   
-
+    // Brand Controller
+    Route::get('/brands', [BrandController::class, 'index']);
+    Route::get('/brands/create', [BrandController::class, 'create']);
+    Route::post('/brands', [BrandController::class, 'store']);
 });
