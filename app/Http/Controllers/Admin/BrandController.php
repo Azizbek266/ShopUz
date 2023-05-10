@@ -42,8 +42,9 @@ class BrandController extends Controller
         return redirect('admin/brands')->with('success', 'Brand added successfully');
     }
 
-    public function edit(Brand $brand)
+    public function edit($id)
     {
+        $brand = Brand::where('id', '=', $id)->first();
         return view('admin.brand.edit', compact('brand'));
     }
 
@@ -54,12 +55,15 @@ class BrandController extends Controller
             'slug' => 'required',
         ]);
 
-        $brand = Brand::findOrFail($id);
-        $brand->name = $request->name;
-        $brand->slug = $request->slug;
-        $brand->status = $request->status == true ? '1' : '0';
+        $name = $request->name;
+        $slug=$request->slug;
+        $status = $request->status == true ? '1' : '0';
 
-        $brand->update();
+        Brand::where('id', '=', $id)->update([
+            'name'=>$name,
+            'slug' => $slug,
+            'status'=>$status
+        ]);
 
         return redirect('admin/brands')->with('success', 'Brand updated successfully');
     }
