@@ -113,7 +113,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <h3>Add Products</h3>
+                                <h3>Update Products</h3>
                                 <a href="{{ url('admin/products') }}"
                                     class="btn btn-primary btn-md text-white float-end">BACK</a>
                             </div>
@@ -122,13 +122,16 @@
                             @if ($errors->any())
                                 <div class="alert alert-warning">
                                     @foreach ($errors->all() as $error)
-                                        <div>{{$error}}</div>
+                                        <div>{{ $error }}</div>
                                     @endforeach
                                 </div>
 
                             @endif
-                            <form action="{{ url('admin/products/store') }}" method="POST" enctype="multipart/form-data">
+
+                            <form action="{{ url('admin/products/' . $product->id . '/update') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
 
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -161,13 +164,15 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade border p-4 show active" id="home-tab-pane" role="tabpanel"
-                                        aria-labelledby="home-tab" tabindex="0">
+                                    <div class="tab-pane fade border p-4 show active" id="home-tab-pane"
+                                        role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                         <div class="mb-3 mt-2">
                                             <label>Category</label>
                                             <select name="category_id" class="form-control">
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}
+                                                    <option value="{{ $category->id }}"
+                                                        {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                                        {{ $category->name }}
                                                     </option>
                                                 @endforeach
 
@@ -175,43 +180,53 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Product Name</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" value="{{ $product->name }}"
+                                                class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Product Slug</label>
-                                            <input type="text" name="slug" class="form-control">
+                                            <input type="text" name="slug" value="{{ $product->slug }}"
+                                                class="form-control">
                                         </div>
                                         <div class="mb-3 mt-2">
                                             <label>Select Brand</label>
                                             <select name="brand" class="form-control">
                                                 @foreach ($brands as $brand)
-                                                    <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                                                    <option value="{{ $brand->name }}"
+                                                        {{ $brand->name == $product->brand ? 'selected' : '' }}>
+                                                        {{ $brand->name }}
+                                                    </option>
                                                 @endforeach
 
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Small Description</label>
-                                            <input type="text" name="small_description" class="form-control">
+                                            <input type="text" value="{{ $product->small_description }}"
+                                                name="small_description" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Description</label>
-                                            <input type="text" name="description" class="form-control">
+                                            <input type="text" value="{{ $product->description }}"
+                                                name="description" class="form-control">
                                         </div>
                                     </div>
                                     <div class="tab-pane fade border p-4" id="seotag-tab-pane" role="tabpanel"
                                         aria-labelledby="seotag-tab" tabindex="0">
                                         <div class="mb-3">
                                             <label for="">Meta Title</label>
-                                            <input type="text" name="meta_title" class="form-control">
+                                            <input type="text" value="{{ $product->meta_title }}"
+                                                name="meta_title" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Meta Description</label>
-                                            <input type="text" name="meta_description" class="form-control">
+                                            <input type="text" value="{{ $product->meta_description }}"
+                                                name="meta_description" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Meta Keyword</label>
-                                            <input type="text" name="meta_keyword" class="form-control">
+                                            <input type="text" name="meta_keyword"
+                                                value="{{ $product->meta_keyword }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="tab-pane fade border p-4" id="details-tab-pane" role="tabpanel"
@@ -220,25 +235,29 @@
                                             <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label for="">Original Price</label>
-                                                    <input type="text" name="original_price" class="form-control">
+                                                    <input type="text" name="original_price"
+                                                        value="{{ $product->original_price }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label for="">Selling Price</label>
-                                                    <input type="text" name="selling_price" class="form-control">
+                                                    <input type="text" name="selling_price"
+                                                        value="{{ $product->selling_price }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label for="">Quantity</label>
-                                                    <input type="number" name="quantity" class="form-control">
+                                                    <input type="number" name="quantity"
+                                                        value="{{ $product->quantity }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label for="">Trending</label>
                                                     <input type="checkbox" name="trending"
+                                                        {{ $product->trending == '1' ? 'checked' : '' }}
                                                         style="width: 50px; height: 50px;">
                                                 </div>
                                             </div>
@@ -246,6 +265,7 @@
                                                 <div class="mb-3">
                                                     <label for="">Status</label>
                                                     <input type="checkbox" name="status"
+                                                        {{ $product->trending == '1' ? 'checked' : '' }}
                                                         style="width: 50px; height: 50px;">
                                                 </div>
                                             </div>
@@ -256,6 +276,21 @@
                                         <div class="mb-3">
                                             <label>Upload Product Images</label>
                                             <input name="image[]" type="file" multiple class="form-control">
+                                        </div>
+                                        <div>
+                                            @if ($product->productImages)
+                                                <div class="row">
+                                                    @foreach ($product->productImages as $image)
+                                                        <div class="col-md-2">
+                                                            <img src="{{ asset($image->image) }}" class="me-4 border"
+                                                                style="width: 80px; height: 80px;">
+                                                            <a class="d-block" href="{{url('admin/product-image/'.$image->id.'/delete')}}">Delete</a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            @else
+                                                <h5>NO Image</h5>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

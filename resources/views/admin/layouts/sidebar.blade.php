@@ -1,5 +1,5 @@
 
-<ul class="navbar-nav sidebar sidebar-success accordion" style="background-color: #1cc88a!important"
+<ul class="navbar-nav sidebar sidebar-success accordion" style=" background-color: #1cc88a!important"
             id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center m-1 justify-content-center"
                 href="{{ url('/admin/dashboard') }}">
@@ -34,6 +34,12 @@
                 <a class="nav-link" href="{{ url('admin/brands') }}">
                     <i class="fab fa-bandcamp" style="color: black;"></i>
                     <span style="color: black;">Brand</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/colors') }}">
+                    <i class="fab fa-bandcamp" style="color: black;"></i>
+                    <span style="color: black;">Color</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
