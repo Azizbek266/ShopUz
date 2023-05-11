@@ -40,10 +40,13 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::post('/category/{category}/update', [CategoryController::class, 'update']);
     Route::any('category/{category}/delete', [CategoryController::class, 'delete']);
 
+
+    //Product Routes
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/create', [ProductController::class, 'create']);
+    Route::post('/products/store', [ProductController::class, 'store']);
 
-    // Brand Controller
+    // Brand Routes
     Route::get('/brands', [BrandController::class, 'index']);
     Route::get('/brands/create', [BrandController::class, 'create']);
     Route::post('/brands', [BrandController::class, 'store']);
