@@ -178,5 +178,8 @@ class ProductController extends Controller
         }
         $product->delete();
         return redirect()->back()->with('message', "Mahsulot o'chirildi");
+        $product->save();
+        return redirect('admin/products')->with('success', 'Product added successfully');
+
     }
 }
