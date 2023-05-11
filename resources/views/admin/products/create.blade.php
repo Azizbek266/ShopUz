@@ -122,12 +122,13 @@
                             @if ($errors->any())
                                 <div class="alert alert-warning">
                                     @foreach ($errors->all() as $error)
-                                        <div>{{$error}}</div>
+                                        <div>{{ $error }}</div>
                                     @endforeach
                                 </div>
 
                             @endif
-                            <form action="{{ url('admin/products/store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('admin/products/store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -159,10 +160,17 @@
                                             Image
                                         </button>
                                     </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="color-tab" data-bs-toggle="tab"
+                                            data-bs-target="#color-tab-pane" type="button" role="tab"
+                                            aria-controls="color-tab-pane" aria-selected="false">
+                                            Product Color
+                                        </button>
+                                    </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade border p-4 show active" id="home-tab-pane" role="tabpanel"
-                                        aria-labelledby="home-tab" tabindex="0">
+                                    <div class="tab-pane fade border p-4 show active" id="home-tab-pane"
+                                        role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                         <div class="mb-3 mt-2">
                                             <label>Category</label>
                                             <select name="category_id" class="form-control">
@@ -256,6 +264,32 @@
                                         <div class="mb-3">
                                             <label>Upload Product Images</label>
                                             <input name="image[]" type="file" multiple class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel"
+                                        aria-labelledby="color-tab" tabindex="0">
+                                        <div class="mb-3">
+                                            <label>Select Color</label>
+                                            <hr/>
+                                            <div class="row">
+                                                @forelse ($colors as $color)
+                                                    <div class="col-md-3">
+                                                        <div class="p-2 border">
+                                                            Color: <input name="colors[{{ $color->id }}]" type="checkbox"
+                                                                value="{{ $color->id }}">{{ $color->name }}
+                                                            <br />
+                                                            Quantity: <input type="number" name="colorquantity[{{ $color->id }}]"
+                                                                style="width: 70px; border:1px solid ">
+                                                        </div>
+                                                    </div>
+                                                @empty
+                                                    <div class="col-md-12">
+                                                        <h3>Colors Not found</h3>
+                                                    </div>
+                                                @endforelse
+
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
