@@ -6,19 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductFormRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
     public function index(){
-        return view('admin.products.index');
+        $products = Product::get();
+        return view('admin.products.index',compact('products'));
     }
     public function create(){
         $categories = Category::all();
         $brands = Brand::all();
-        return view('admin.products.create',compact('categories', 'brands'));
+        $colors = Color::where('status', '0')->get();
+        return view('admin.products.create',compact('categories', 'brands', 'colors'));
     }
 
     public function store(Request $request) {
@@ -36,6 +41,8 @@ class ProductController extends Controller
           'meta_keyword' =>'required',
          'meta_description' =>'required',
         ]);
+
+
         $category_id = $request->category_id;
         $name = $request->name;
         $slug = $request->slug;
@@ -67,6 +74,112 @@ class ProductController extends Controller
         $product->meta_keyword=$meta_keyword;
         $product->meta_description=$meta_description;
         $product->save();
+
+        if($request->hasFile('image')) {
+            $uploadPath = 'uploads/products/';
+
+            $i = 1;
+            foreach($request->file('image') as $imageFile) {
+                $extention = $imageFile->getClientOriginalExtension();
+                $filename = time().$i++.'.'.$extention;
+                $imageFile->move($uploadPath, $filename);
+                $finalImagePathName = $uploadPath.'-'.$filename;
+            }
+            $product->productImages()->create([
+                'product_id' => $product->id,
+                'image' => $finalImagePathName,
+            ]);
+        }
+
+        if($request->colors) {
+            foreach($request->colors as $key => $color) {
+                $product->productColors()->create([
+                    'product_id' => $product->id,
+                    'color_id' => $color,
+                    'quantity' => $request->colorquantity[$key] ?? 0
+                ]);
+            }
+        }
+
+       
+        return redirect('admin/products')->with('message', "Mahsulot qo'shildi");
+    }
+
+
+    public function edit(int $product_id) {
+        $categories = Category::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
+        return view('admin.products.edit', compact('categories', 'brands', 'product'));
+    }
+
+    public function update(ProductFormRequest $request, int $product_id)
+    {
+        $product = Product::findOrFail($product_id);
+        $validatedData = $request->validated();
+    
+        $category = Category::findOrFail($validatedData['category_id']);
+    
+        $product->category_id = $validatedData['category_id'];
+        $product->name = $validatedData['name'];
+        $product->slug = Str::slug($validatedData['slug']);
+        $product->brand = $validatedData['brand'];
+        $product->small_description = $validatedData['small_description'];
+        $product->description = $validatedData['description'];
+        $product->original_price = $validatedData['original_price'];
+        $product->selling_price = $validatedData['selling_price'];
+        $product->quantity = $validatedData['quantity'];
+        $product->trending = $request->trending == true ? '1' : '0';
+        $product->status = $request->status == true ? '1' : '0';
+        $product->meta_title = $validatedData['meta_title'];
+        $product->meta_keyword = $validatedData['meta_keyword'];
+        $product->meta_description = $validatedData['meta_description'];
+    
+        $product->save();
+    
+        if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/products/';
+            $i = 1;
+            foreach ($request->file('image') as $imageFile) {
+                $extension = $imageFile->getClientOriginalExtension();
+                $filename = time().$i++.'.'.$extension;
+                $imageFile->move($uploadPath, $filename);
+                $finalImagePathName = $uploadPath.$filename;
+    
+                $product->productImages()->create([
+                    'product_id' => $product->id,
+                    'image' => $finalImagePathName,
+                ]);
+            }
+        }
+    
+        return redirect('admin/products')->with('message', "Mahsulot ma'lumotlari o'zgartirildi");
+    }
+
+    
+    public function destroyImage(int $product_image_id) {
+        $productImage = ProductImage::findOrFail($product_image_id);
+        if(File::exists($productImage->image)) {
+            File::delete($productImage->image);
+        }
+        $productImage->delete();
+        return redirect()->back()->with('message', "Mahsulot rasmi o'chirildi");
+        
+    }
+
+    public function destroy(int $product_id){
+        $product = Product::findOrFail($product_id);
+        if($product->productImages()) {
+            foreach($product->productImages() as $image) {
+                if(File::exists($image->image)) {
+                    File::delete($image->image);
+                }
+            }
+        }
+        $product->delete();
+        return redirect()->back()->with('message', "Mahsulot o'chirildi");
+        $product->save();
         return redirect('admin/products')->with('success', 'Product added successfully');
+
     }
 }
