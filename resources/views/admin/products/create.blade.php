@@ -119,6 +119,12 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            {{-- @if($errors->any())
+                            <div class="alert alart-warning">
+                                @foreach ($errors->all() as $error)
+                                    <div>{{$error}}</div>
+                                @endforeach
+                            </div> --}}
                             <form action="{{ url('admin/products/store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
