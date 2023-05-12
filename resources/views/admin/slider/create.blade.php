@@ -146,7 +146,7 @@
                                     <input type="text" name="description" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="">Imgae</label>
+                                    <label for="">Image</label>
                                     <input type="file" name="image" class="form-control">
                                 </div>
                                 <div class="mb-3">

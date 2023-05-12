@@ -71,6 +71,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('/sldr', [SliderController::class, 'index']);
     Route::get('/sliders/create', [SliderController::class, 'create']);
     Route::post('/sldr', [SliderController::class, 'store']);
+    Route::get('/sldr/{slider}/edit', [SliderController::class, 'edit']);
+    Route::put('/sldr/{slider}', [SliderController::class, 'update']);
+    Route::get('sldr/{slider}/delete', [SliderController::class, 'destroy']); 
     
     //Color Routes
     Route::get('/colors', [ColorController::class, 'index']);

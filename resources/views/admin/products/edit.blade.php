@@ -364,7 +364,7 @@
                                                             </td>
                                                             <td>
                                                                 <button
-                                                                    type="button"value="{{ $productColor->id }}"class="deleteProductColorBtn btn btn-danger btn-sm text-white">Delete</button>
+                                                                    type="button" value="{{ $productColor->id }}"class="deleteProductColorBtn btn btn-danger btn-sm text-white">Delete</button>
 
                                                             </td>
 

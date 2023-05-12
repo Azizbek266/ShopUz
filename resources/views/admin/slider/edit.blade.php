@@ -120,9 +120,6 @@
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
                 <div class="row">
                     <div class="col-md-12">
                         @if (session('message'))
@@ -131,71 +128,75 @@
                     </div>
                     <div class="card" style="margin-top: 8%; margin-left: 4%; width:93%">
                         <div class="card-header" style="padding-bottom: 10px">
-                            <h3 style="display: flex">Slider Lists
-                                <a href="{{ url('admin/sliders/create') }}" class=" btn btn-primary"
-                                    style="margin-left: 80%">Add Slider</a>
+                            <h3 style="display: flex">Add Slider
+                                <a href="{{ url('admin/sldr/') }}" class=" btn btn-primary"
+                                    style="margin-left: 83%">Back</a>
                             </h3>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($sliders as $slider)
-                                        <tr>
-                                            <td>{{ $slider->id }}</td>
-                                            <td class="text-center">{{ $slider->title }}</td>
-                                            <td class="text-center">{{ $slider->description }}</td>
-                                            <td>
-                                                @if ($slider->image)
-                                                    <img src="{{ asset($slider->image) }}"
-                                                        style="width: 55px; height: 60px; margin-left: 35%"
-                                                        alt="">
-                                                @else
-                                                    <h6 class="text-center">No image</h6>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $slider->status == '0' ? 'Visible' : 'Hidden' }}</td>
-                                            <td>
-                                                <a href="{{ url('admin/sldr/' . $slider->id . '/edit') }}"
-                                                    class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="{{ url('admin/sldr/' . $slider->id . '/delete') }}"
-                                                    onclick="return confirm('Are you sure, you want to delete this data')"
-                                                    class="btn btn-sm btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
+                            <form action="{{ url('admin/sldr/'.$slider->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="id" value="{{ $slider->id }}">
+                                <div class="mb-3">
+                                    <label for="">Title</label>
+                                    <input type="text" value="{{ $slider->title }}" name="title"
+                                        class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Description</label>
+                                    <input type="text" value="{{ $slider->description }}" name="description"
+                                        class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image">Image</label>
+                                    <input type="file" name="image" class="form-control" />
+                                    <img src="{{ asset("$slider->image") }}" style="width: 50px; height: 50px;">
+                                    {{-- @if ($slider->image)
+                                        <div>
+                                            <img class="img-responsive mt-2" style="width:300px; height:200px;"
+                                                alt="image" src="/Uploads/slider/{{ $slider->image }}"
+                                                id="sliderImage" onclick="openFileInput()">
+                                        </div>
+                                    @endif
+                                    <div id="fileInputContainer" style="display: none;">
+                                        <input type="file" name="image" id="image" class="form-control">
+                                        @error('image')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div> --}}
+                                </div>
 
-                            </table>
+                                <div class="mb-3">
+                                    <label for="">Status</label><br>
+                                    <input type="checkbox" name="status" {{ $slider->status ? 'checked' : '' }}>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <!-- End of Main Content -->
 
-        </div>
-    </div>
+            <script>
+                function openFileInput() {
+                    document.getElementById('sliderImage').style.display = 'none';
+                    document.getElementById('fileInputContainer').style.display = 'block';
+                }
+            </script>
+            <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
+            <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+            <!-- Core plugin JavaScript-->
+            <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-    <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>
