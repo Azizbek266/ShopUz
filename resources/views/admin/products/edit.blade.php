@@ -278,6 +278,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="tab-pane fade border p-4" id="image-tab-pane" role="tabpanel"
                                         aria-labelledby="image-tab" tabindex="0">
                                         <div class="mb-3">
@@ -304,9 +305,11 @@
                                     <div class="tab-pane fade border p-4" id="color-tab-pane" role="tabpanel"
                                         aria-labelledby="color-tab" tabindex="0">
                                         <div class="mb-3">
+
                                             <h4>Add product Color</h4>
                                             <label>Select Color</label>
                                             <hr />
+
                                             <div class="row">
                                                 @forelse ($colors as $color)
                                                     <div class="col-md-3">

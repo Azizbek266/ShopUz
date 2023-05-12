@@ -178,6 +178,8 @@ class ProductController extends Controller
                     File::delete($image->image);
                 }
             }
+
+            
         }
         $product->delete();
         return redirect()->back()->with('message', "Mahsulot o'chirildi");

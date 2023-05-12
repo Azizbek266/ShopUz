@@ -75,4 +75,5 @@ class ColorController extends Controller
 
         return redirect('admin/colors')->with('success', 'Color deleted successfully');
     }
+    
 }
