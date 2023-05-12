@@ -134,6 +134,7 @@
                         <div class="card-body">
                             <form action="{{ url('admin/brands/'.$brand->id.'/update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{$brand->id}}">
                                 <div class="row">
                                     <div class=" col-md-6 mb-3">
                                         <label for="Name">Name</label>
