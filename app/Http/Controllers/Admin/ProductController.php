@@ -170,37 +170,41 @@ class ProductController extends Controller
         
     }
 
-    public function destroy(int $product_id){
+    public function destroy(int $product_id)
+    {
         $product = Product::findOrFail($product_id);
-        if($product->productImages()) {
-            foreach($product->productImages() as $image) {
-                if(File::exists($image->image)) {
-                    File::delete($image->image);
-                }
+    
+        // Delete related product images
+        foreach ($product->productImages as $image) {
+            if (File::exists($image->image)) {
+                File::delete($image->image);
             }
-
-            
+            $image->delete();
         }
+    
+        // Delete product colors
+        $product->productColors()->delete();
+    
         $product->delete();
+    
         return redirect()->back()->with('message', "Mahsulot o'chirildi");
-        $product->save();
-        return redirect('admin/products')->with('success', 'Product added successfully');
-
     }
-
-    public function updateProductColorQty(Request $request, $prod_color_id) {
-        $productColorData = Product::findOrFail($request->product_id)
-                                    ->productColors()->where('id', $prod_color_id)->first();
+    
+    public function updateProductColorQty(Request $request, $prod_color_id)
+    {
+        $productColorData = ProductColor::findOrFail($prod_color_id);
         $productColorData->update([
             'quantity' => $request->qty,
         ]);
-
-        return response()->json(['message'=>'Product Color Qty updated']);
+    
+        return response()->json(['message' => 'Product Color Qty updated']);
     }
 
-    public function deleteProductColor(string $product_color_id) {
-            $productColor = ProductColor::find($product_color_id);
-            $productColor->delete();
-            return response()->json(['message' => 'Color Deleted',]);
-    }
+    public function deleteProductColor(string $product_color_id)
+{
+    $productColor = ProductColor::findOrFail($product_color_id);
+    $productColor->delete();
+    return response()->json(['message' => 'Color Deleted']);
+}
+
 }

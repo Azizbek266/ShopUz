@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +67,10 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::post('/brands/{dat}/update', [BrandController::class, 'update']);
     Route::any('brands/{dat}/delete', [BrandController::class, 'delete']);
 
-
+    //Slider Routes
+    Route::get('/sldr', [SliderController::class, 'index']);
+    Route::get('/sliders/create', [SliderController::class, 'create']);
+    Route::post('/sldr', [SliderController::class, 'store']);
     
     //Color Routes
     Route::get('/colors', [ColorController::class, 'index']);
@@ -76,3 +80,5 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::put('/colors/{color_id}/update', [ColorController::class, 'update']);
     Route::get('/colors/{color_id}/delete', [ColorController::class, 'destroy']); 
 });
+
+

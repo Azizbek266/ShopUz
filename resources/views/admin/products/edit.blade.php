@@ -17,7 +17,7 @@
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    
+
 </head>
 
 <body id="page-top">
@@ -278,7 +278,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="tab-pane fade border p-4" id="image-tab-pane" role="tabpanel"
                                         aria-labelledby="image-tab" tabindex="0">
                                         <div class="mb-3">
@@ -426,18 +426,12 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    @push('scripts')
         <script>
             $(document).ready(function() {
                 $(document).on("click", ".updateProductColorBtn", function() {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
                     var product_id = "{{ $product->id }}";
                     var prod_color_id = $(this).val();
-                    var qty = $(this).closest(".productColorTR").find(".updateProductColorQty").val();
+                    var qty = $(this).closest(".productColorTr").find(".updateProductColorQty").val();
                     if (qty <= 0) {
                         alert("Stok alanı boş bırakılamaz");
                         return false;
@@ -451,26 +445,34 @@
                         type: "POST",
                         url: "/admin/product/product-color/" + prod_color_id,
                         data: data,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
                         success: function(response) {
                             alert(response.message);
                         },
                     });
                 });
+
                 $(document).on("click", ".deleteProductColorBtn", function() {
                     var prod_color_id = $(this).val();
                     var thisClick = $(this);
                     $.ajax({
                         type: "GET",
                         url: "/admin/product/product-color/" + prod_color_id + "/delete",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
                         success: function(response) {
-                            thisClick.closest(".productColorTR").remove();
+                            thisClick.closest(".productColorTr").remove();
                             alert(response.message);
                         },
                     });
                 });
             });
         </script>
-    @endpush
+
+
 
 
 </body>
