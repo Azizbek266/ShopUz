@@ -56,6 +56,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     //Delete image
     Route::get('/product-image/{product_image_id}/delete',  [ProductController::class, 'destroyImage']);
 
+
+
     // Brand Routes
     Route::get('/brands', [BrandController::class, 'index']);
     Route::get('/brands/create', [BrandController::class, 'create']);
@@ -64,6 +66,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::post('/brands/{dat}/update', [BrandController::class, 'update']);
     Route::any('brands/{dat}/delete', [BrandController::class, 'delete']);
 
+
+    
     //Color Routes
     Route::get('/colors', [ColorController::class, 'index']);
     Route::get('/colors/create', [ColorController::class, 'create']);
