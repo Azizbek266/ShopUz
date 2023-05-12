@@ -134,6 +134,7 @@
                         <div class="card-body">
                             <form action="{{ url('admin/category/'.$category->id.'/update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class=" col-md-6 mb-3">
                                         <label for="Name">Name</label>
@@ -153,8 +154,7 @@
                                     <div class=" col-md-6 mb-3">
                                         <label for="image">Image</label>
                                         <input type="file" name="image" id="image" class="form-control">
-                                        <img class="img-responsive mt-2" style="width:300px; height:200px;" alt="image" src="/Uploads/Category/{{$category->image}}">
-                                         @error('image') <small class="text-danger">{{ $message }}</small>@enderror
+                                        <img src="{{ asset("$slider->image") }}" alt="">
                                     </div>
                                     <div class=" col-md-6 mb-3">
                                         <label for="status">Status</label><br />
