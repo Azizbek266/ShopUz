@@ -238,7 +238,7 @@ form.sign-in-form {
   right: 52%;
 }
 
-.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .image,
 .container.sign-up-mode .left-panel .content {
   transform: translateX(-800px);
 }

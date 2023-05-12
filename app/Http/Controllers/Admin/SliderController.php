@@ -60,13 +60,7 @@ class SliderController extends Controller
     public function update(SliderFormRequest $request, Slider $slider)
     {
         $validatedData = $request->validated();
-    
         if ($request->hasFile('image')) {
-            $destination = $slider->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
-            }
-    
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
