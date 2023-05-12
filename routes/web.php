@@ -50,6 +50,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::put('/products/{product}/update', [ProductController::class, 'update']);
     Route::get('/products/{product_id}/delete', [ProductController::class, 'destroy']); 
 
+    Route::post('/product-color/{prod_color_id}', [ProductController::class, 'updateProductColorQty']);
+    Route::get('/product-color/{prod_color_id}/delete', [ProductController::class, 'deleteProductColor']);
+
     //Delete image
     Route::get('/product-image/{product_image_id}/delete',  [ProductController::class, 'destroyImage']);
 
